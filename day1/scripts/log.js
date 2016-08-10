@@ -15,4 +15,4 @@ for(var i=0; i<data.length;i++){
 	
 	  console.log("data[{0}]={1}", i, element);
 }
-}
+});
