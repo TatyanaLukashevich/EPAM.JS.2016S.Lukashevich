@@ -1,5 +1,6 @@
 for(var i = 0; i < data.length; i++){
 	var element=Number(data[i])
+	
 	if(data[i]!=0 && !element ){
 		continue;
 	}
