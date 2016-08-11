@@ -3,3 +3,5 @@ data[0] = 120;
 data[1] = "40";
 data[3] = null;
 data[4] = 0;
+data[5] = " ";
+data[6] = false;
