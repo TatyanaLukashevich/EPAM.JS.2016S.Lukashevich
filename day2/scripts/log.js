@@ -4,7 +4,8 @@ for(var i = 1; i <= 3; i++){
 	
 	for (var j = 0; j < data.length; j++) {
 		//check whether the data[j] contains particular method.
-		if (method in data[j]) {
+		switch (method in data[j]) {
+			case true:
 			mainCount += data[j][method]();
 		}
 	}
