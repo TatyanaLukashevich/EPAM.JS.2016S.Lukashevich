@@ -1,0 +1,50 @@
+.container{
+	width:800px;
+	height:800px;
+	margin: auto;
+}
+.field{
+	width:600px;
+	height:300px;
+	float:left;
+	border: 1px solid black;
+}
+.buttons{
+	float:left;
+	width: 180px;
+	height: 100%;
+}
+
+.generate, .setColor, .reset{
+	background:white;
+	width: 175px;
+	padding: 5px 3px;
+	margin: 30px;
+	border: 1px solid black;
+	text-align: center;
+	cursor: pointer;
+	font-size: 25px;
+}
+
+.block{
+	width: 60px;
+	position: relative;
+	height: 20%;
+	float: inherit;	
+	text-align: center;
+	font-size: 20px;
+	border: 1px solid black;
+	margin: -1px;
+}
+
+.generated, .setedColor, .reseted{
+	background:white;
+	width: 175px;
+	padding: 5px 3px;
+	margin: 30px;
+	border: 1px solid black;
+	text-align: center;
+	cursor: default;
+	font-size: 25px;
+	color:red;
+}
