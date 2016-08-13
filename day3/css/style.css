@@ -36,15 +36,3 @@
 	border: 1px solid black;
 	margin: -1px;
 }
-
-.generated, .setedColor, .reseted{
-	background:white;
-	width: 175px;
-	padding: 5px 3px;
-	margin: 30px;
-	border: 1px solid black;
-	text-align: center;
-	cursor: default;
-	font-size: 25px;
-	color:red;
-}
