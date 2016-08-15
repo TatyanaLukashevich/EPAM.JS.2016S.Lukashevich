@@ -15,7 +15,7 @@
 	height: 100%;
 }
 
-.generate, .setColor, .reset{
+#generate, #setColor, #reset{
 	background:white;
 	width: 175px;
 	padding: 5px 3px;
