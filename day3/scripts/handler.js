@@ -1,13 +1,17 @@
 $(function() {	
 	check("reset");
-	check("setColor")
+	check("setColor");
 	
-	$("#generate").on("click", generate);
-	$("#setColor").on("click", setColor);
-	$("#reset").on("click", reset);
+	$(".generate").on("click", generate);
+	$(".setColor").on("click", setColor);
+	$(".reset").on("click", reset);
 	
 	function generate() {
 		reset();
+		function random(min, max) {
+			return Math.floor((Math.random() * max) + min);
+		}		
+		
 		var $field = $(".field");
 			for (var i = 0; i < 50; i++) {
 				$field.append('<div class="block">'+ random(1,100) + '</div>');
@@ -19,21 +23,18 @@ $(function() {
 	}
 
 	function setColor() {
-		var elems = $(".block");
-		for (var i = 0; i < 50; i++) {
-			var element = elems[i];
+		$(".block").each(function(index, element) {
 			var number = parseInt(element.innerHTML);
-			
 			if(number > 75) {
-				element.style.background = "red";
-			}			
-			else if(number> 50) {
-				element.style.background = "orange";
-			}			
-			else if(number> 25) {
-				element.style.background = "green";
-			}
-		}
+					element.style.background = "red";
+				}			
+				else if(number> 50) {
+					element.style.background = "orange";
+				}			
+				else if(number> 25) {
+					element.style.background = "green";
+				}
+		});
 		
 		disable("setColor");		
 	}
@@ -49,19 +50,16 @@ $(function() {
 	}			
 	
 	function disable(name) {
-		document.getElementById(name).disabled = true;
-		document.getElementById(name).style.cursor = "default";
-		document.getElementById(name).style.background = "red";
+		$("." + name).addClass("disable");
 	}
 
 	function enable(name) {
-		document.getElementById(name).disabled = false;
-		document.getElementById(name).style.cursor = "pointer";
-		document.getElementById(name).style.background = "white";
+		$("." + name).removeClass("disable");
 	}
 	
 	function check(name) {
 		var $block = $(".block");
+		
 		if($block.length == 0)
 		{
 			disable(name);
@@ -71,9 +69,5 @@ $(function() {
 		}
 	}
 	
-	
-	function random(min, max) {
-	return Math.floor((Math.random() * max) + min);
-	}
 })
 
