@@ -23,7 +23,11 @@ $(function() {
 				clearTimeout(zombieId);
 			}
 		},100);
-	}
-
-	
+	}	
 })
+
+function gameOver()
+	{
+		$(".game-over").css("display","block");
+		$(".zombie").remove();
+	}

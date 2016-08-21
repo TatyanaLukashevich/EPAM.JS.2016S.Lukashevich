@@ -11,5 +11,6 @@ var zombie = function(){
 	
 	this.die = function($zombie){
 		$zombie.remove();
+		gameOver();
 	}
 }
