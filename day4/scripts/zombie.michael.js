@@ -1,4 +1,3 @@
-zombie.michael = function(){
-	zombie.call(this);
-	return "michael";
+zombie.michael = function($line){
+	zombie.call(this, $line, "michael");
 }

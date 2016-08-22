@@ -1,4 +1,3 @@
-zombie.strong = function(){
-	zombie.call(this);
-	return "strong";
+zombie.strong = function($line){
+	zombie.call(this, $line, "strong");
 }
