@@ -34,6 +34,8 @@ $(function() {
 	function growOldZombie() {
 		$(zombiesArray).each(function(index, element) {
 			zombiesArray[index].growOld();
+			zombiesArray[index].progress.css('width', this.health);
+			zombiesArray[index].activePrgrss.css('width', this.currentHealth);
 		})
 	}
 	
@@ -43,6 +45,9 @@ $(function() {
 			zombiesArray[index].progress.css('width', this.health);
 			zombiesArray[index].activePrgrss.css('width', this.currentHealth);
 			self.healthBarText =  $("<p>" + self.currentHealth + '/' + self.health + "</p>");
+			if (zombiesArray[index].currentHealth  <= 0) {
+				zombiesArray[index].die()
+			}
 		})
 	}
 

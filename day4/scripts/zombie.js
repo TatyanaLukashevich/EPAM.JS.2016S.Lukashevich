@@ -46,17 +46,17 @@ var zombie = function($line, type){
 	
 	this.growOld = function() {
 		var self = this; 
-		setTimeout(function(){ 
+		// setTimeout(function(){ 
 		var intervalID = setInterval(function(){
-			self.currentHealth=self.currentHealth-5;
+			self.currentHealth = self.currentHealth-15;
 			self.activePrgrss.css('width', this.currentHealth);
 			self.healthBarText =  $("<p>" + self.health + '/' + self.currentHealth + "</p>");
-			if (self.currentHealth == 0) {
+			if (self.currentHealth <= 0) {
 				clearTimeout(intervalID)
 				self.die()
 			}
-		}, 1000);
-		}, 10000);
+		}, 3000);
+		// }, 10000);
 		
 	}
 	
