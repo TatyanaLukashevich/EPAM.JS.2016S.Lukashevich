@@ -73,10 +73,10 @@ body {
 	 margin-top:-10px;
  }
  
-.life-progress{
+.progress-life{
 	width:100px;	
 	height:10px;
-	background-color: #e6e6e6;	
+	background: red;	
 	margin: 12.5px 0 16px 0;
 }
 
