@@ -30,18 +30,18 @@ body {
 }
 
 .buttons { 
-	 width: 900px;
-	 margin: 0 auto;
-	 margin-top: 5px; 
+	width: 900px;
+	margin: 5px auto;
  }
  
 .button { 
-	 display: inline-block;
-	 border: 1px solid #eee; 
-	 padding: 5px 10px;
-	 margin-bottom: 5px; 
-	 cursor: pointer;
-	 text-align: center; 
+	background:gold;
+	display: inline-block;
+	border: 1px solid #eee; 
+	padding: 5px 10px;
+	margin-bottom: 5px; 
+	cursor: pointer;
+	text-align: center; 
  }
  
 .button#btnGenerate {
@@ -67,3 +67,20 @@ body {
 	background-image: url(../img/strong.gif); 
 	background-size: cover; 
  }
+ 
+ p{
+	 font-size: 0.5em;
+	 margin-top:-10px;
+ }
+ 
+.life-progress{
+	width:100px;	
+	height:10px;
+	background-color: #e6e6e6;	
+	margin: 12.5px 0 16px 0;
+}
+
+.active-life{
+	background:steelblue;
+	height:10px;
+}
