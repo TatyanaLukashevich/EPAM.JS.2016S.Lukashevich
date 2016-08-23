@@ -9,7 +9,7 @@ var zombie = function($line, type){
 	
 	var $field = $("#field");
 	var $zombie = $("<div class='zombie " + type + "'></div>");
-	var width =  $field.width() - $zombie.width();
+	var isAlive = true;
 	
 	this.healthBarText =  $("<p>" + this.health + '/' + this.currentHealth + "</p>");
 	this.progress = $("<div class= 'progress-life'></div>");
@@ -21,7 +21,7 @@ var zombie = function($line, type){
 	$zombie.append(this.progress);
 	this.progress.append(this.activePrgrss);
 	$line.append($zombie);	
-	
+	var width =  $field.width() - $zombie.width();
 	
 	this.move = function(){
 		this.position += this.speed;
@@ -31,6 +31,11 @@ var zombie = function($line, type){
 			return false;
 		}
 		
+		if(!isAlive)
+		{
+			this.die();
+			return true;
+		}
 		
 		$zombie.css("right", this.position + "px");
 		return true;
@@ -46,23 +51,25 @@ var zombie = function($line, type){
 	
 	this.growOld = function() {
 		var self = this; 
-		// setTimeout(function(){ 
-		var intervalID = setInterval(function(){
-			self.currentHealth = self.currentHealth-15;
-			self.activePrgrss.css('width', this.currentHealth);
-			self.healthBarText =  $("<p>" + self.health + '/' + self.currentHealth + "</p>");
-			if (self.currentHealth <= 0) {
-				clearTimeout(intervalID)
-				self.die()
-			}
-		}, 3000);
-		// }, 10000);
-		
+		var count = 10;
+		var x=setInterval(function(){			
+			  if(count ==0) {
+				 clearInterval(x);
+			  }
+			  else {
+				self.currentHealth--;
+				self.activePrgrss.css('width', this.currentHealth);
+				self.healthBarText.text(self.currentHealth + '/' + self.health);  
+			  }
+
+			  count--;
+			}, 1000);		
 	}
 	
 	
 	this.die = function(){
 		$zombie.remove();
+		isAlive = false;
 		this.position = 0;
 	}
 }

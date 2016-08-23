@@ -35,7 +35,8 @@ $(function() {
 		$(zombiesArray).each(function(index, element) {
 			zombiesArray[index].growOld();
 			zombiesArray[index].progress.css('width', this.health);
-			zombiesArray[index].activePrgrss.css('width', this.currentHealth);
+			zombiesArray[index].activePrgrss.css('width', (this.currentHealth*zombiesArray[index].progress.width())/this.health);
+			zombiesArray[index].healthBarText.text(zombiesArray[index].currentHealth + '/' + zombiesArray[index].health);
 		})
 	}
 	
@@ -44,7 +45,7 @@ $(function() {
 			zombiesArray[index].currentHealth = zombiesArray[index].currentHealth-15;
 			zombiesArray[index].progress.css('width', this.health);
 			zombiesArray[index].activePrgrss.css('width', this.currentHealth);
-			self.healthBarText =  $("<p>" + self.currentHealth + '/' + self.health + "</p>");
+			zombiesArray[index].healthBarText.text(zombiesArray[index].currentHealth + '/' + zombiesArray[index].health);
 			if (zombiesArray[index].currentHealth  <= 0) {
 				zombiesArray[index].die()
 			}
