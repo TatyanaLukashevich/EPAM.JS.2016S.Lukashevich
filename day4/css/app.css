@@ -70,14 +70,14 @@ body {
  
  p{
 	 font-size: 0.5em;
-	 margin-top:-10px;
+	 margin-top:-20px;
  }
  
 .progress-life{
 	width:100px;	
 	height:10px;
 	background: red;	
-	margin: 12.5px 0 16px 0;
+	margin: 0 0 16px 0;
 }
 
 .active-life{
