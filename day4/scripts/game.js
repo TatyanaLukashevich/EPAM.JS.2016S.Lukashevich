@@ -11,6 +11,7 @@ $(function() {
 	$("#expld").on("click", explode);
 	
 	function generate() {
+		$(".game-over").css("display","none");
 		var randomZombie = random(0, 1);
 		var randomLine = random(1, randomLineCount);
 		var $fieldLine = $("#" + randomLine);
@@ -34,18 +35,13 @@ $(function() {
 	function growOldZombie() {
 		$(zombiesArray).each(function(index, element) {
 			zombiesArray[index].growOld();
-			zombiesArray[index].progress.css('width', this.health);
-			zombiesArray[index].activePrgrss.css('width', (this.currentHealth*zombiesArray[index].progress.width())/this.health);
-			zombiesArray[index].healthBarText.text(zombiesArray[index].currentHealth + '/' + zombiesArray[index].health);
+		
 		})
 	}
 	
 	function explode() {
 		$(zombiesArray).each(function(index, element) {
-			zombiesArray[index].currentHealth = zombiesArray[index].currentHealth-15;
-			zombiesArray[index].progress.css('width', this.health);
-			zombiesArray[index].activePrgrss.css('width', this.currentHealth);
-			zombiesArray[index].healthBarText.text(zombiesArray[index].currentHealth + '/' + zombiesArray[index].health);
+			this.explode(15);
 			if (zombiesArray[index].currentHealth  <= 0) {
 				zombiesArray[index].die()
 			}
