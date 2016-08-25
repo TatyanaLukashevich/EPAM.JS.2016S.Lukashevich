@@ -1,11 +1,11 @@
+var isPaused = false;
 $(function() {	
 	var zombies = [zombie.michael,zombie.strong];
 	var zombiesArray = [];
 	var randomLineCount = 5;
 	var zombieTimeout = 100;
 	var $field = $('#field');
-	
-	var isPaused = false;
+
 	var click = 0;
 	
 	$("#start").on("click", generate);
@@ -25,15 +25,8 @@ $(function() {
 			if(isPaused) {
 				clearTimeout(gameId);
 			}
-			var intervalId = setInterval(function(){
-				if(!currentZombie.move()){
-					clearTimeout(intervalId);
-					gameOver();
-				}
-				else if(isPaused){
-					clearTimeout(intervalId);
-				}
-			},100);
+			
+			Move(currentZombie);
 				}, 2500)
 		$('#start').css("background", "gray");	
 
@@ -83,15 +76,7 @@ $(function() {
 		else {
 			isPaused = false;
 			$(zombiesArray).each(function(index, element) {
-				var intervalId = setInterval(function(){
-				if(!zombiesArray[index].move()){
-					clearTimeout(intervalId);
-					gameOver();
-				}
-				else if(isPaused){
-					clearTimeout(intervalId);
-				}
-			},100);
+			Move(zombiesArray[index]);
 		})
 			generate();
 		}
@@ -104,5 +89,17 @@ $(function() {
 		$(".game-over").css("display","block");
 		$(".zombie").remove();
 	}	
+	
+	function Move(movedObject){
+		var intervalId = setInterval(function(){
+			if(!movedObject.move()){
+						clearTimeout(intervalId);
+						gameOver();
+			}
+			else if(isPaused){
+				clearTimeout(intervalId);
+			}
+		},100);
+	}
 })
 

@@ -58,12 +58,14 @@ var zombie = function($line, type){
 			  if(count < 0) {
 				 clearInterval(x);
 			  }
-			  else {
+			  else if(!isPaused){
 				self.explode(1);
 			  }
+			if(!isPaused) {
+				count--;
+			}
 
-			  count--;
-			}, 1000);		
+			}, 1000);			
 	}
 	
 	this.explode = function(lifeCrash) {
