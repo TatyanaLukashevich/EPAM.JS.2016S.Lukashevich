@@ -5,7 +5,7 @@ var zombie = function($line, type){
 	
 	this.currentHealth = this.health;
 	
-	this.speed = 2;
+	this.speed = 1;
 	
 	this.minSpeed = 0;
 	
@@ -82,5 +82,6 @@ var zombie = function($line, type){
 		$zombie.remove();
 		isAlive = false;
 		this.position = 0;
+		
 	}
 }
