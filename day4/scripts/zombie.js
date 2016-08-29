@@ -9,6 +9,8 @@ var zombie = function($line, type){
 	
 	this.minSpeed = 0;
 	
+	this.line = $line;
+	
 	var $field = $("#field");
 	var $zombie = $("<div class='zombie " + type + "'></div>");
 	var isAlive = true;
@@ -59,7 +61,7 @@ var zombie = function($line, type){
 				 clearInterval(x);
 			  }
 			  else if(!isPaused){
-				self.explode(1);
+				self.crash(1);
 			  }
 			if(!isPaused) {
 				count--;
@@ -68,7 +70,7 @@ var zombie = function($line, type){
 			}, 1000);			
 	}
 	
-	this.explode = function(lifeCrash) {
+	this.crash = function(lifeCrash) {
 		var self = this; 
 		self.currentHealth = self.currentHealth - lifeCrash;
 		self.activePrgrss.css('width', (self.currentHealth*self.progress.width())/self.health);
@@ -81,7 +83,6 @@ var zombie = function($line, type){
 	this.die = function(){
 		$zombie.remove();
 		isAlive = false;
-		this.position = 0;
-		
+		this.position = 0;		
 	}
 }

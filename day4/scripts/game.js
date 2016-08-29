@@ -125,6 +125,7 @@ $(function() {
 			else if(isPaused){
 				clearTimeout(intervalId);
 			}
+			isWounded(movedObject);
 		},100);
 	}
 	
@@ -152,7 +153,37 @@ $(function() {
 		$("#expld").prop('disabled', false);
 	}
 	
+	function isWounded(zombie) {
+		if(zombiesArray[0].position >= 550) {
+		$(zombiesArray).each(function(index, element) {
+				var plantInLine = zombiesArray[index].line.find(".plant");
+				if (plantInLine.length > 0) {
+					if (zombiesArray[index].position == (plantInLine[0].offsetLeft+75)) {
+						zombie.crash(10);
+					}
+			}
+			})
+	}
+	}
+	
+	// var length = zombiesArray.length;
+		// for (var i = 0; i <= length; i++) {
+			// if (zombies[i] == undefined) continue;
 
+			// var heigth = $("#field").offsetHeight;
+			// var positionTop = parseInt(zombiesArray[i].style.top, 10);
+			// var positionLeft = parseInt(zombiesArray[i].style.left, 10);
+			// var positionPlantLeft = parseInt($(".plant").style.left, 10);
+
+			// var plantHeight = $(".plant").clientHeight;
+			// var plantWidth = $(".plant").clientWidth;
+			
+			// if (positionTop > heigth - plantHeight && positionLeft - positionPlantLeft <
+				// plantWidth && positionLeft > positionPlantLeft) {
+					// type.health -= 5;
+			// }
+		// }
+	// }
 
 		
 		
