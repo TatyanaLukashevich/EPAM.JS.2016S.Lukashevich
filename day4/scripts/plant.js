@@ -1,4 +1,4 @@
-var plant = function($line, position){
+var Plant = function($line, position){
 	this.position = position;
 	var $field = $("#field");
 	var $plant = $("<div class='plant'></div>");

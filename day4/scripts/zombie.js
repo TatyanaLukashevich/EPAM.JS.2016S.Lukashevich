@@ -1,4 +1,4 @@
-var zombie = function($line, type){
+var Zombie = function($line, type){
 	this.position = 0;
 	
 	this.health = 50;

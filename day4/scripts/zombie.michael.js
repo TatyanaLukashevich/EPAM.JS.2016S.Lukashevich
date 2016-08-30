@@ -1,4 +1,4 @@
-zombie.michael = function($line){
-	zombie.call(this, $line, "michael");
+Zombie.Michael = function($line){
+	Zombie.call(this, $line, "michael");
 	this.minSpeed = 0.2;
 }

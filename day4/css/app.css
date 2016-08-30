@@ -6,7 +6,6 @@ body {
 
 .content { 
 	position: relative; 
-	overflow:hidden;
 }
 
 .game-over {
@@ -17,6 +16,10 @@ body {
 	color: #f44336;
 	font-size: 21px;
 	font-weight: bold;
+}
+
+.clear{
+	clear: both;
 }
 
 #field { 

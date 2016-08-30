@@ -1,5 +1,5 @@
-zombie.strong = function($line){
-	zombie.call(this, $line, "strong");
+Zombie.Strong = function($line){
+	Zombie.call(this, $line, "strong");
 	this.health = 70;
 	this.minSpeed = 0.5;
 	this.currentHealth = this.health;

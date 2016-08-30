@@ -1,6 +1,6 @@
 var isPaused = false;
 $(function() {	
-	var zombies = [zombie.michael,zombie.strong];
+	var zombies = [Zombie.Michael,Zombie.Strong];
 	var zombiesArray = [];
 	var plantArray = [];
 	var randomLineCount = 5;
@@ -9,7 +9,7 @@ $(function() {
 	var gameId;
 	var click = 0;
 	var isStart = false;
-	var isGrowInLine = false;
+	
 	
 	$("#start").on("click", generate);
 	$("#pause").on("click", pause);
@@ -56,7 +56,7 @@ $(function() {
 			return;
 		}
 		else {
-			var currentPlant = new plant($fieldLine, position);
+			var currentPlant = new Plant($fieldLine, position);
 			plantArray.push(currentPlant);
 		}
 	}
@@ -84,7 +84,7 @@ $(function() {
 	
 	function explode() {
 			$(zombiesArray).each(function(index, element) {
-				this.explode(15);
+				this.crash(15);
 				if (zombiesArray[index].currentHealth  <= 0) {
 					zombiesArray[index].die()
 			}
@@ -154,38 +154,15 @@ $(function() {
 	}
 	
 	function isWounded(zombie) {
-		if(zombiesArray[0].position >= 550) {
-		$(zombiesArray).each(function(index, element) {
-				var plantInLine = zombiesArray[index].line.find(".plant");
+				var plantInLine = zombie.line.find(".plant");
 				if (plantInLine.length > 0) {
-					if (zombiesArray[index].position == (plantInLine[0].offsetLeft+75)) {
-						zombie.crash(10);
+					if ($field.width() - zombie.position == (plantInLine[0].offsetLeft+75)) {
+						zombie.crash(50);
+						plantInLine[0].remove(); 
+						toDisabled('plant')
+						toEnabled('plant')
 					}
 			}
-			})
-	}
-	}
-	
-	// var length = zombiesArray.length;
-		// for (var i = 0; i <= length; i++) {
-			// if (zombies[i] == undefined) continue;
-
-			// var heigth = $("#field").offsetHeight;
-			// var positionTop = parseInt(zombiesArray[i].style.top, 10);
-			// var positionLeft = parseInt(zombiesArray[i].style.left, 10);
-			// var positionPlantLeft = parseInt($(".plant").style.left, 10);
-
-			// var plantHeight = $(".plant").clientHeight;
-			// var plantWidth = $(".plant").clientWidth;
-			
-			// if (positionTop > heigth - plantHeight && positionLeft - positionPlantLeft <
-				// plantWidth && positionLeft > positionPlantLeft) {
-					// type.health -= 5;
-			// }
-		// }
-	// }
-
-		
-		
+	}	
 })
 
